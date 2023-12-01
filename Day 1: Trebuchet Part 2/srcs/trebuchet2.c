@@ -6,7 +6,7 @@
 /*   By: dvan-den <dvan-den@student.s19.be >        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 10:45:42 by dvan-den          #+#    #+#             */
-/*   Updated: 2023/12/01 13:47:04 by dvan-den         ###   ########.fr       */
+/*   Updated: 2023/12/01 14:03:31 by dvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ int	wordsToInteger(char *str)
 	if (strcmp(str, "5") == 0)
 		return (5);
 	if (strcmp(str, "six") == 0)
+		return (6);
+	if (strcmp(str, "6") == 0)
 		return (6);
 	if (strcmp(str, "seven") == 0)
 		return (7);
@@ -130,7 +132,7 @@ int	trebuchet(int fd)
 	{
 		count++;
 		value = calc(line);
-		//ft_printf(line);
+		//ft_printf("Line: %d\t%d\n", count, value);
 		sum = sum + value;
 		line = get_next_line(fd);
 	}
@@ -142,11 +144,11 @@ int	main(void)
 	int	fd;
 	int	sum;
 
-	fd = open("test.txt", O_RDONLY);
+	fd = open("input.txt", O_RDONLY);
 	if (fd < 0)
 		return (0);
 	sum = trebuchet(fd);
-	ft_printf("result:\t%d\n", sum);
+	ft_printf("\nresult:\t%d\n", sum);
 	close(fd);
 	return (0);
 }
